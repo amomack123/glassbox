@@ -96,6 +96,18 @@ body {
   height: 100%;
 }
 
+/* Nav links */
+.nav-link:hover {
+  color: #f2f7ff !important;
+  transition: color 0.2s ease;
+}
+
+@media (max-width: 640px) {
+  .nav-links {
+    display: none !important;
+  }
+}
+
 /* Section divider */
 .section-rule {
   height: 1px;

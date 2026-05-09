@@ -1,5 +1,6 @@
 import HeroGlass from "@/components/HeroGlass";
 import FadeUp from "@/components/FadeUp";
+import Navbar from "@/components/Navbar";
 
 // ── Shared style tokens ────────────────────────────────────────────────────
 const NAVY = "#0A1628";
@@ -72,6 +73,8 @@ export default function Home() {
   return (
     <main style={{ backgroundColor: NAVY, color: GLACIAL, overflowX: "hidden" }}>
 
+      <Navbar />
+
       {/* ════════════════════════════════════════════════════════════════
           SECTION 1 — HERO
       ════════════════════════════════════════════════════════════════ */}
@@ -80,25 +83,34 @@ export default function Home() {
         style={{
           position: "relative",
           minHeight: "100svh",
+          overflow: "hidden",
           display: "flex",
           alignItems: "center",
           padding: "0 4rem",
         }}
       >
+        {/* Full-viewport glass overlay — sits above text (pointer-events: none) */}
+        <HeroGlass />
+
+        {/* Text content — beneath glass in z-order but still interactive */}
         <div
           style={{
+            position: "relative",
+            zIndex: 3,
             width: "100%",
             maxWidth: "80rem",
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "4rem",
-            alignItems: "center",
+            paddingTop: "5rem",
           }}
-          className="hero-grid"
         >
-          {/* Left: text */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "2.25rem", zIndex: 1 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "2.25rem",
+              maxWidth: "38rem",
+            }}
+          >
             <h1
               style={{
                 fontFamily: SERIF,
@@ -125,7 +137,14 @@ export default function Home() {
               complex task — live, step by step, without taking over.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "1.1rem" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "1.1rem",
+              }}
+            >
               <a href="#demo" className="btn-primary">
                 Watch the demo
               </a>
@@ -139,17 +158,9 @@ export default function Home() {
               </a>
             </div>
           </div>
-
-          {/* Right: Three.js glass */}
-          <div
-            className="hero-glass-wrap"
-            style={{ height: "600px", display: "flex", alignItems: "center", justifyContent: "center" }}
-          >
-            <HeroGlass />
-          </div>
         </div>
 
-        {/* Bottom fade-out into next section */}
+        {/* Bottom fade into next section */}
         <div
           style={{
             position: "absolute",
@@ -159,6 +170,7 @@ export default function Home() {
             height: "8rem",
             background: `linear-gradient(transparent, ${NAVY})`,
             pointerEvents: "none",
+            zIndex: 11,
           }}
         />
       </section>
@@ -265,28 +277,21 @@ export default function Home() {
             </p>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <div
-              style={{
-                position: "relative",
-                paddingBottom: "56.25%",
-                height: 0,
-                overflow: "hidden",
-                border: "1px solid rgba(77,223,255,0.15)",
-              }}
-            >
-              <iframe
-                src="https://www.youtube.com/embed/Ov4haYArNiI"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
+            {/* Place demo video at public/video/demo.mp4 to activate */}
+            <div style={{ border: "1px solid rgba(77,223,255,0.15)", lineHeight: 0 }}>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
                   width: "100%",
-                  height: "100%",
-                  border: "none",
+                  display: "block",
+                  backgroundColor: "#060e1a",
                 }}
-              />
+              >
+                <source src="/video/demo.mp4" type="video/mp4" />
+              </video>
             </div>
           </FadeUp>
         </div>
