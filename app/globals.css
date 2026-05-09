@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #0A1628;
+  --color-cyan: #4DDFFF;
+  --color-glacial: #F2F7FF;
+
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-dm-mono), "Courier New", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a1628;
+  color: #f2f7ff;
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(77, 223, 255, 0.15);
+  color: #f2f7ff;
+}
+
+/* CTA button */
+.btn-primary {
+  display: inline-block;
+  padding: 0.875rem 2.25rem;
+  border: 1px solid #4ddfff;
+  color: #4ddfff;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.28s ease, color 0.28s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4ddfff;
+  color: #0a1628;
+}
+
+/* Founder card */
+.founder-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.75rem;
+  border: 1px solid rgba(77, 223, 255, 0.18);
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.8rem;
+  color: #f2f7ff;
+  text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+
+.founder-card:hover {
+  border-color: #4ddfff;
+  color: #4ddfff;
+}
+
+/* Secondary link */
+.link-secondary {
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.7rem;
+  color: rgba(242, 247, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.link-secondary:hover {
+  color: rgba(242, 247, 255, 0.8);
+}
+
+/* Grid card */
+.grid-card {
+  padding: 2.75rem;
+  background-color: #0a1628;
+  height: 100%;
+}
+
+/* Section divider */
+.section-rule {
+  height: 1px;
+  background-color: rgba(242, 247, 255, 0.07);
+  margin: 0 3rem;
+}
+
+/* ── Responsive overrides ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-glass-wrap {
+    display: none !important;
+  }
+  .steps-grid,
+  .who-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pain-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .section-rule {
+    margin: 0 1.5rem;
+  }
+}
+
