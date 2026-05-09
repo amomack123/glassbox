@@ -1,6 +1,7 @@
 import HeroGlass from "@/components/HeroGlass";
 import FadeUp from "@/components/FadeUp";
 import Navbar from "@/components/Navbar";
+import CursorTrail from "@/components/CursorTrail";
 
 // ── Shared style tokens ────────────────────────────────────────────────────
 const NAVY = "#0A1628";
@@ -73,6 +74,7 @@ export default function Home() {
   return (
     <main style={{ backgroundColor: NAVY, color: GLACIAL, overflowX: "hidden" }}>
 
+      <CursorTrail />
       <Navbar />
 
       {/* ════════════════════════════════════════════════════════════════
