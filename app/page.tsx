@@ -279,21 +279,28 @@ export default function Home() {
             </p>
           </FadeUp>
           <FadeUp delay={0.25}>
-            {/* Place demo video at public/video/demo.mp4 to activate */}
-            <div style={{ border: "1px solid rgba(77,223,255,0.15)", lineHeight: 0 }}>
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
+            <div
+              style={{
+                position: "relative",
+                paddingBottom: "56.25%",
+                height: 0,
+                overflow: "hidden",
+                border: "1px solid rgba(77,223,255,0.15)",
+              }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/Ov4haYArNiI"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
                 style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
                   width: "100%",
-                  display: "block",
-                  backgroundColor: "#060e1a",
+                  height: "100%",
+                  border: "none",
                 }}
-              >
-                <source src="/video/demo.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
           </FadeUp>
         </div>
